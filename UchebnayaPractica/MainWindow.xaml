@@ -1,0 +1,38 @@
+﻿<Window x:Class="UchebnayaPractica.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UchebnayaPractica" xmlns:svgc1="http://sharpvectors.codeplex.com/svgc/"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000" Icon="\Images\Logo_Color_Transparent.ico" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,1000,650" RadiusX="15" RadiusY="15"/>
+    </Window.Clip>
+    <Grid Background="#FFF1F1F1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" NavigationUIVisibility="Hidden" x:Name="MainFrame"></Frame>
+        <Border Grid.Row="1" Background="#FFF3CC8D" CornerRadius="15 15 0 0">
+            <Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Visibility="Collapsed" x:Name="Employee" Style="{StaticResource InteractionImage}" Source="{StaticResource employee}" Height="40" Width="45" Margin="0 5 30 0" MouseDown="Employee_MouseDown"></Image>
+                    <Image Source="/Images/Logo_Color_Transparent.png" Height="70" Margin="0 -20 0 0">
+                        <Image.Effect>
+                            <DropShadowEffect Opacity="0.8" BlurRadius="10" Direction="314" ShadowDepth="7" Color="Black"></DropShadowEffect>
+                        </Image.Effect>
+                    </Image>
+                    <Image Visibility="Collapsed" x:Name="Material" Style="{StaticResource InteractionImage}" Source="{StaticResource MaterialDrawingImage}" Height="40" Width="40" Margin="30 0 0 0" MouseDown="Material_MouseDown"></Image>
+                </StackPanel>
+
+                <Image Visibility="Collapsed" x:Name="Person" Style="{StaticResource InteractionImage}" Source="{StaticResource PersonDrawingImage}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="40" Margin="10 0 0 0" MouseDown="Person_MouseDown"></Image>
+                <Image Visibility="Collapsed" x:Name="Exit" Style="{StaticResource InteractionImage}" Source="{StaticResource exit_svgrepo_comDrawingImage}"  HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" Margin="0 0 10 0" MouseDown="Exit_MouseDown" ></Image>
+            </Grid>
+        </Border>
+        <Image Style="{StaticResource InteractionImage}" Source="{StaticResource cross_svgrepo_comDrawingImage}" Width="15" Height="15" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" MouseDown="Image_MouseDown"></Image>
+        
+    </Grid>
+</Window>
