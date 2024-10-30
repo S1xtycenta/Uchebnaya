@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel x:Name="MainPanel" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="TitleTb" FontWeight="Bold" FontSize="20" Foreground="#FFBB0C07" HorizontalAlignment="Center" Margin="0 0 0 20">Добавить сотрудника</TextBlock>
+            <TextBlock x:Name="TitleTb" FontWeight="Bold" FontSize="20" Foreground="#FF4867AC" HorizontalAlignment="Center" Margin="0 0 0 20">Добавить сотрудника</TextBlock>
             <StackPanel Orientation="Horizontal" >
                 <StackPanel VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
@@ -50,17 +50,17 @@
                         <TextBox TextWrapping="Wrap" Height="80"  Text="{Binding Education}"></TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 0 0 10">
-                        <TextBlock Width="100" Margin="0 0 0 5" HorizontalAlignment="Left">Адресс</TextBlock>
+                        <TextBlock Width="100" Margin="0 0 0 5" HorizontalAlignment="Left">Адрес</TextBlock>
                         <TextBox TextWrapping="Wrap" Height="50"  Text="{Binding Address}"></TextBox>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel x:Name="PhotoPanel" Margin="40 0 0 0" VerticalAlignment="Center" Visibility="Collapsed">
-                    <Border CornerRadius="5" BorderThickness="2" BorderBrush="#FFBB0C07">
+                    <Border CornerRadius="5" BorderThickness="2" BorderBrush="#FF4867AC">
                         <Image x:Name="MainImage" Width="300" Height="350"></Image>
                     </Border>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
                         <Button x:Name="LoadBtn" Width="250" Margin="0 0 20 0" Style="{StaticResource StilyzedButton}" Click="LoadBtn_Click" >Загрузить изображение</Button>
-                        <Image x:Name="DeleteImage" Width="30" Style="{StaticResource InteractionImage}" Source="{StaticResource delete_1_svgrepo_comDrawingImage}" MouseDown="DeleteImage_MouseDown" ></Image>
+                        <Button Click="Trash_Click" x:Name="Trash" Style="{StaticResource StilyzedButton}" Width="60" Height="25" Margin="10 0 0 0">Delete</Button>
                     </StackPanel>
 
                 </StackPanel>
@@ -79,7 +79,7 @@
                                     <GridViewColumn Header="delete" Width="70" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Image Visibility="{Binding User.canEdit}" x:Name="Delete" Width="70" HorizontalAlignment="Center" Height="30" Style="{StaticResource InteractionImage}" Source="{StaticResource delete_1_svgrepo_comDrawingImage}" MouseDown="Delete_MouseDown"></Image>
+                                                <Button Click="Delete_Click" Visibility="{Binding User.canEdit}" x:Name="Delete" Style="{StaticResource StilyzedButton}" Width="60" Height="25" >Delete</Button>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
@@ -97,6 +97,7 @@
             <Button x:Name="SaveBtn" Style="{StaticResource StilyzedButton}" Margin="0 10 0 0" Width="300" Click="SaveBtn_Click">Сохранить</Button>
         </StackPanel>
 
-        <Image x:Name="Back" Style="{StaticResource InteractionImage}" Source="{StaticResource arrow_ios_back_svgrepo_comDrawingImage}" Width="40" Height="40" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="Back_MouseDown"></Image>
+        <Button x:Name="Back" Style="{StaticResource StilyzedButton}"  Width="100" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Back_Click">Назад</Button>
+        <Button x:Name="ExitBtn" Style="{StaticResource StilyzedButton}" Width="100" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15" Click="Button_Click">Выйти</Button>
     </Grid>
 </Page>

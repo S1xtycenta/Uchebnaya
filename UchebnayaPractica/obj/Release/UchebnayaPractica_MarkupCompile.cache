@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\user\Source\Repos\S1xtycenta\Uchebnaya\UchebnayaPractica\App.xaml
-9-335563402
+27-10570304
 2-1293242089
-46-834357194
+73-334825575
 27-1421152139
-MainWindow.xaml;Pages\AccessoriesAndMaterialsPage.xaml;Pages\AddEditAccessoriesPage.xaml;Pages\AddEditMaterialPage.xaml;Pages\AddEditEmployee.xaml;Pages\AuthPage.xaml;Pages\EmployeePage.xaml;Pages\MainPage.xaml;Pages\RegPage.xaml;
+Components\TestControl.xaml;Components\OperationControl.xaml;Components\SizeControl.xaml;Components\DocumentControl.xaml;Components\ItemControl.xaml;Components\AccessoriesControl.xaml;Components\MaterialControl.xaml;Components\ProductControl.xaml;MainWindow.xaml;Pages\AccessoriesAndMaterialsPage.xaml;Pages\AddEditAccessoriesPage.xaml;Pages\AddEditFailure.xaml;Pages\AddEditTestPage.xaml;Pages\AddEditOrder.xaml;Pages\AddEditMaterialPage.xaml;Pages\AddEditEmployee.xaml;Pages\AuthPage.xaml;Pages\TestPage.xaml;Pages\FailurePage.xaml;Pages\OrderPage.xaml;Pages\EmployeePage.xaml;Pages\PlanPage.xaml;Pages\RegPage.xaml;Windows\DocumentsWindow.xaml;Windows\HistoryWindow.xaml;Windows\ProductWindow.xaml;Windows\StatusWindow.xaml;
 
 True
 

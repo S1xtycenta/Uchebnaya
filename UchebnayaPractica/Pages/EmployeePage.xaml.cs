@@ -48,21 +48,6 @@ namespace UchebnayaPractica.Pages
             NavigationService.Navigate(new AddEditEmployee(new User(), true));
         }
 
-        private void Delete_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (Methods.TakeChoice("Вы точно хотите удалить сотрудника?"))
-            {
-                App.db.User.Remove((sender as Image).DataContext as User);
-                Methods.TakeInformation("Успешно удалено!");
-            }
-        }
-
-        private void Edit_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            App.employeePage = this;
-            NavigationService.Navigate(new AddEditEmployee((sender as Image).DataContext as User,false, "Редактировать сотрудника"));
-        }
-
         private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
         {
             Refresh();
@@ -71,6 +56,26 @@ namespace UchebnayaPractica.Pages
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            App.employeePage = this;
+            NavigationService.Navigate(new AddEditEmployee((sender as Button).DataContext as User, false, "Редактировать сотрудника"));
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (Methods.TakeChoice("Вы точно хотите удалить сотрудника?"))
+            {
+                if (((sender as Button).DataContext as User).Login == App.currentUser.Login)
+                {
+                    Methods.TakeWarning("Вы не можете уждалить самого себя!");
+                    return;
+                }
+                App.db.User.Remove((sender as Button).DataContext as User);
+                Methods.TakeInformation("Успешно удалено!");
+            }
         }
     }
 }

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\user\source\repos\UchebnayaDinar\UchebnayaPractica\UchebnayaPractica\obj\Debug\
+C:\Users\user\Desktop\UchebnayaPractica\UchebnayaPractica\obj\Debug\
 UchebnayaPractica
 none
 false
 DEBUG;TRACE
-C:\Users\user\source\repos\UchebnayaDinar\UchebnayaPractica\UchebnayaPractica\App.xaml
-9-335563402
+C:\Users\user\Desktop\UchebnayaPractica\UchebnayaPractica\App.xaml
+27-10570304
 2-1293242089
-471087420927
-27-1226647224
-MainWindow.xaml;Pages\AccessoriesAndMaterialsPage.xaml;Pages\AddEditAccessoriesPage.xaml;Pages\AddEditMaterialPage.xaml;Pages\AddEditEmployee.xaml;Pages\AuthPage.xaml;Pages\EmployeePage.xaml;Pages\MainPage.xaml;Pages\RegPage.xaml;
+741586952546
+27-212113284
+Components\TestControl.xaml;Components\OperationControl.xaml;Components\SizeControl.xaml;Components\DocumentControl.xaml;Components\ItemControl.xaml;Components\AccessoriesControl.xaml;Components\MaterialControl.xaml;Components\ProductControl.xaml;MainWindow.xaml;Pages\AccessoriesAndMaterialsPage.xaml;Pages\AddEditAccessoriesPage.xaml;Pages\AddEditFailure.xaml;Pages\AddEditTestPage.xaml;Pages\AddEditOrder.xaml;Pages\AddEditMaterialPage.xaml;Pages\AddEditEmployee.xaml;Pages\AuthPage.xaml;Pages\TestPage.xaml;Pages\FailurePage.xaml;Pages\OrderPage.xaml;Pages\EmployeePage.xaml;Pages\PlanPage.xaml;Pages\RegPage.xaml;Windows\DocumentsWindow.xaml;Windows\HistoryWindow.xaml;Windows\ProductWindow.xaml;Windows\StatusWindow.xaml;
 
-False
+True
 

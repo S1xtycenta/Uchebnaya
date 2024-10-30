@@ -1,0 +1,56 @@
+﻿<Page x:Class="UchebnayaPractica.Pages.AddEditOrder"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UchebnayaPractica.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="AddEditOrder">
+    <Grid>
+        <StackPanel x:Name="MainPanel" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="TitleTb" FontWeight="Bold" FontSize="20" Foreground="#FF4867AC" HorizontalAlignment="Center" Margin="0 0 0 20">Добавить заказ</TextBlock>
+            <StackPanel Orientation="Horizontal" >
+                <StackPanel VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <TextBlock Width="100">№</TextBlock>
+                        <TextBox x:Name="OrderNumberTb" IsReadOnly="True" Width="300" Text="{Binding OrderNumber}"></TextBox>
+                    </StackPanel>
+                    <StackPanel x:Name="NamePanel" Orientation="Horizontal" Margin="0 0 0 10">
+                        <TextBlock Width="100">Наименование</TextBlock>
+                        <TextBox x:Name="NameTb" Width="300" Text="{Binding Name}"></TextBox>
+                    </StackPanel>
+                    <StackPanel x:Name="ClientPanel" Orientation="Horizontal" Margin="0 0 0 10">
+                        <TextBlock Width="100" VerticalAlignment="Center">Заказчик</TextBlock>
+                        <ComboBox Width="300" x:Name="ClientCb" DisplayMemberPath="FIO"></ComboBox>
+                    </StackPanel>
+                    <StackPanel x:Name="ManagerPanel" Visibility="Collapsed" Orientation="Horizontal" Margin="0 0 0 10">
+                        <TextBlock Width="100" VerticalAlignment="Center">Менеджер</TextBlock>
+                        <TextBox IsReadOnly="True" Width="300" x:Name="EmployeeTb"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <TextBlock Width="100">Стоимость</TextBlock>
+                        <TextBox x:Name="AmountTb" Width="300"  Text="{Binding Amount}"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <TextBlock Width="100" VerticalAlignment="Center">Дата окончания</TextBlock>
+                        <DatePicker x:Name="DateEndDp" Width="300" SelectedDate="{Binding DateEnd}"></DatePicker>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                        <TextBlock VerticalAlignment="Center" Width="100">Дата заказа</TextBlock>
+                        <DatePicker x:Name="DateOrderDp" Width="300" IsEnabled="False"></DatePicker>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+            <Button x:Name="SaveBtn" Style="{StaticResource StilyzedButton}" Margin="0 30 0 0" Width="300" Click="SaveBtn_Click">Сохранить</Button>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Right">
+            <Button x:Name="DocumentBtn" Margin="10 10 10 0" Width="150" Style="{StaticResource StilyzedButton}" Click="DocumentBtn_Click">Документы заказа</Button>
+            <Button x:Name="ProductBtn" Margin="10 10 10 0"  Width="150" Style="{StaticResource StilyzedButton}" Click="ProductBtn_Click">Изделия заказа</Button>
+        </StackPanel>
+        <Button x:Name="Back" Style="{StaticResource StilyzedButton}"  Width="100" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Back_Click">Назад</Button>
+    </Grid>
+</Page>

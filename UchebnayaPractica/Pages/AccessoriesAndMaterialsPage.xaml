@@ -12,7 +12,7 @@
         <TabControl Margin="0 10 0 0">
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock FontWeight="Bold" Foreground="#FFBB0C07">Материалы</TextBlock>
+                    <TextBlock FontWeight="Bold" Foreground="#FF4867AC">Материалы</TextBlock>
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -72,14 +72,14 @@
                                 <GridViewColumn Header="Edit" Width="85">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image x:Name="EditMaterial" Visibility="{Binding canEdit}" Style="{StaticResource InteractionImage}" Source="{StaticResource edit_3_svgrepo_comDrawingImage}" Width="95" Height="30" MouseDown="EditMaterial_MouseDown"></Image>
+                                            <Button Click="Edit_Click" Visibility="{Binding canEdit}" x:Name="Edit" Style="{StaticResource StilyzedButton}" Width="60" Height="25" Margin="10 0 10 0">Edit</Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn Header="Delete" Width="85">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image x:Name="DeleteMaterial" Visibility="{Binding canEdit}" Style="{StaticResource InteractionImage}" Source="{StaticResource delete_1_svgrepo_comDrawingImage}" Width="95" Height="30" MouseDown="DeleteMaterial_MouseDown"></Image>
+                                            <Button Click="Trash_Click" Visibility="{Binding canEdit}" x:Name="Trash" Style="{StaticResource StilyzedButton}" Width="60" Height="25" Margin="10 0 10 0">Delete</Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -97,7 +97,7 @@
 
             <TabItem>
                 <TabItem.Header>
-                    <TextBlock FontWeight="Bold" Foreground="#FFBB0C07">Комплектующие</TextBlock>
+                    <TextBlock FontWeight="Bold" Foreground="#FF4867AC">Комплектующие</TextBlock>
                 </TabItem.Header>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -157,14 +157,14 @@
                                 <GridViewColumn Header="Edit" Width="85">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image x:Name="EditAccessories" Visibility="{Binding canEdit}" Style="{StaticResource InteractionImage}" Source="{StaticResource edit_3_svgrepo_comDrawingImage}" Width="95" Height="30" MouseDown="EditAccessories_MouseDown" ></Image>
+                                            <Button Click="EditA_Click" Visibility="{Binding canEdit}" x:Name="EditA" Style="{StaticResource StilyzedButton}" Width="60" Height="25" Margin="10 0 10 0">Edit</Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn Header="Delete" Width="85">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Image x:Name="DeleteAccessories" Visibility="{Binding canEdit}" Style="{StaticResource InteractionImage}" Source="{StaticResource delete_1_svgrepo_comDrawingImage}" Width="95" Height="30" MouseDown="DeleteAccessories_MouseDown"></Image>
+                                            <Button Click="DeleteA_Click" Visibility="{Binding canEdit}" x:Name="DeleteA" Style="{StaticResource StilyzedButton}" Width="60" Height="25" Margin="10 0 10 0">Delete</Button>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>

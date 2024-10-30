@@ -43,7 +43,7 @@
                 </StackPanel>
 
                 <StackPanel Margin="40 0 0 0">
-                    <Border CornerRadius="15" BorderBrush="#FFBB0C07" BorderThickness="3">
+                    <Border CornerRadius="15" BorderBrush="#FF4867AC" BorderThickness="3">
                         <Image x:Name="MainImage" Width="200" Height="250"></Image>
                     </Border>
                 </StackPanel>
@@ -52,6 +52,6 @@
 HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0 20 0 0" Click="RegBtn_Click"/>
         </StackPanel>
 
-        <Image x:Name="Back" Source="{StaticResource arrow_ios_back_svgrepo_comDrawingImage}" Height="35" Width="35" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="Back_MouseDown"></Image>
+        <Button x:Name="Back" Style="{StaticResource StilyzedButton}"  Width="100" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Back_Click">Назад</Button>
     </Grid>
 </Page>

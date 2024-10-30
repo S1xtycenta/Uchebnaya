@@ -41,12 +41,6 @@ namespace UchebnayaPractica.Pages
             DataContext = accessories;
         }
 
-        private void Back_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (NavigationService.CanGoBack)
-                NavigationService.GoBack();
-        }
-
         private void LoadBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             var opn = new OpenFileDialog();
@@ -68,26 +62,6 @@ namespace UchebnayaPractica.Pages
             }
         }
 
-        private void Delete_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            MainImage.Source = null;
-            accessories.IdAcessoriesImage = null;
-
-            if (accessoriesImage.Id == 0)
-                accessoriesImage = null;
-            else
-            {
-                if (isNew && accessoriesImage.Accessories.Count() > 0)
-                    accessories.IdAcessoriesImage = null;
-                else if (!isNew && accessoriesImage.Accessories.Count() > 1)
-                    accessories.IdAcessoriesImage = null;
-                else if(!isNew && accessoriesImage.Accessories.Count() == 1)
-                {
-                    accessories.IdAcessoriesImage = null;
-                    App.db.AcessoriesImage.Remove(accessoriesImage);
-                }                  
-            }
-        }
 
         private void SaveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -129,6 +103,33 @@ namespace UchebnayaPractica.Pages
             App.db.SaveChanges();
             NavigationService.Navigate(new AccessoriesAndMaterialsPage());
             Methods.TakeInformation("Изменения успешно сохранены!");
+        }
+
+        private void Trash_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MainImage.Source = null;
+            accessories.IdAcessoriesImage = null;
+
+            if (accessoriesImage.Id == 0)
+                accessoriesImage = null;
+            else
+            {
+                if (isNew && accessoriesImage.Accessories.Count() > 0)
+                    accessories.IdAcessoriesImage = null;
+                else if (!isNew && accessoriesImage.Accessories.Count() > 1)
+                    accessories.IdAcessoriesImage = null;
+                else if (!isNew && accessoriesImage.Accessories.Count() == 1)
+                {
+                    accessories.IdAcessoriesImage = null;
+                    App.db.AcessoriesImage.Remove(accessoriesImage);
+                }
+            }
+        }
+
+        private void Back_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+                NavigationService.GoBack();
         }
     }
 }

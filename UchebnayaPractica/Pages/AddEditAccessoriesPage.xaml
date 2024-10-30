@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="TitleTb" FontWeight="Bold" FontSize="24" Foreground="#FFBB0C07" HorizontalAlignment="Center">Добавить комлпектующее</TextBlock>
+            <TextBlock x:Name="TitleTb" FontWeight="Bold" FontSize="24" Foreground="#FF4867AC" HorizontalAlignment="Center">Добавить комлпектующее</TextBlock>
             <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
                 <StackPanel VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
@@ -52,12 +52,12 @@
                 </StackPanel>
 
                 <StackPanel Margin="40 0 0 0">
-                    <Border CornerRadius="5" BorderThickness="2" BorderBrush="#FFBB0C07">
+                    <Border CornerRadius="5" BorderThickness="2" BorderBrush="#FF4867AC">
                         <Image x:Name="MainImage" Width="300" Height="350"></Image>
                     </Border>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
-                        <Button x:Name="LoadBtn" Width="250" Margin="0 0 20 0" Style="{StaticResource StilyzedButton}" Click="LoadBtn_Click">Загрузить изображение</Button>
-                        <Image x:Name="Delete" Width="30" Style="{StaticResource InteractionImage}" Source="{StaticResource delete_1_svgrepo_comDrawingImage}" MouseDown="Delete_MouseDown"></Image>
+                        <Button x:Name="LoadBtn" Width="220" Margin="0 0 20 0" Style="{StaticResource StilyzedButton}" Click="LoadBtn_Click">Загрузить изображение</Button>
+                        <Button Click="Trash_Click" x:Name="Trash" Style="{StaticResource StilyzedButton}" Width="60" Height="25" Margin="10 0 0 0">Delete</Button>
                     </StackPanel>
                         
                 </StackPanel>
@@ -66,7 +66,6 @@
             <Button x:Name="SaveBtn" Margin="0 10 0 0" Width="250" Style="{StaticResource StilyzedButton}" FontWeight="Bold" Click="SaveBtn_Click">Сохранить</Button>
         </StackPanel>
 
-        <Image x:Name="Back" Source="{StaticResource arrow_ios_back_svgrepo_comDrawingImage}" Width="40" Height="40"
-               HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10" Style="{StaticResource InteractionImage}" MouseDown="Back_MouseDown"></Image>
+        <Button x:Name="Back" Style="{StaticResource StilyzedButton}"  Width="100" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Back_Click">Назад</Button>
     </Grid>
 </Page>

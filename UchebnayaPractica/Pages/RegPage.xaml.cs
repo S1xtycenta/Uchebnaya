@@ -25,10 +25,10 @@ namespace UchebnayaPractica.Pages
             var opn = new OpenFileDialog();
             opn.Title = "Выберите изображение";
             opn.Filter = "Image Files|*.bmp;*.jpg;*.jpeg;*.png;*.gif;*.tif;*.tiff|All Files|*.*";
-            if(opn.ShowDialog() == true)
+            if (opn.ShowDialog() == true)
             {
                 image.Photo = File.ReadAllBytes(opn.FileName);
-                if(image.Id == 0)
+                if (image.Id == 0)
                     App.db.UserImage.Add(image);
                 user.IdUserImage = image.Id;
                 MainImage.Source = Methods.GetBitmapImageFromBytes(image.Photo);
@@ -78,13 +78,13 @@ namespace UchebnayaPractica.Pages
                 Methods.TakeWarning("Вы не ввели пароль!");
                 return;
             }
-            if(txtPassword.Password.Length < 5)
+            if (txtPassword.Password.Length < 5)
             {
                 Methods.TakeWarning("Пароль должен содержать не меньше 5 символов!");
                 return;
             }
             string message = ValidatePassword(txtPassword.Password);
-            if(message != "")
+            if (message != "")
             {
                 Methods.TakeWarning(message);
                 return;
@@ -117,9 +117,9 @@ namespace UchebnayaPractica.Pages
             return "";
         }
 
-        private void Back_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Back_Click(object sender, RoutedEventArgs e)
         {
-            if(NavigationService.CanGoBack)
+            if (NavigationService.CanGoBack)
                 NavigationService.GoBack();
         }
     }

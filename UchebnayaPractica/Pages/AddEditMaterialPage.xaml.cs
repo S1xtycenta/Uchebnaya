@@ -43,12 +43,6 @@ namespace UchebnayaPractica.Pages
             DataContext = material;
         }
 
-        private void Back_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (NavigationService.CanGoBack)
-                NavigationService.GoBack();
-        }
-
         private void LoadBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             var opn = new OpenFileDialog();
@@ -69,28 +63,6 @@ namespace UchebnayaPractica.Pages
                 MainImage.Source = Methods.GetBitmapImageFromBytes(bytes);
             }
         }
-
-        private void Delete_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            MainImage.Source = null;
-            material.IdMaterialImage = null;
-
-            if (materialImage.Id == 0)
-                materialImage = null;
-            else
-            {
-                if (isNew && materialImage.Material.Count() > 0)
-                    material.IdMaterialImage = null;
-                else if (!isNew && materialImage.Material.Count() > 1)
-                    material.IdMaterialImage = null;
-                else if(!isNew && materialImage.Material.Count() == 1)
-                {
-                    material.IdMaterialImage = null;
-                    App.db.MaterialImage.Remove(materialImage);
-                }                  
-            }
-        }
-
         private void SaveBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             string mistake = "";
@@ -133,6 +105,33 @@ namespace UchebnayaPractica.Pages
             App.db.SaveChanges();
             NavigationService.Navigate(new AccessoriesAndMaterialsPage());
             Methods.TakeInformation("Изменения успешно сохранены!");
+        }
+
+        private void Back_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+                NavigationService.GoBack();
+        }
+
+        private void Trash_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MainImage.Source = null;
+            material.IdMaterialImage = null;
+
+            if (materialImage.Id == 0)
+                materialImage = null;
+            else
+            {
+                if (isNew && materialImage.Material.Count() > 0)
+                    material.IdMaterialImage = null;
+                else if (!isNew && materialImage.Material.Count() > 1)
+                    material.IdMaterialImage = null;
+                else if (!isNew && materialImage.Material.Count() == 1)
+                {
+                    material.IdMaterialImage = null;
+                    App.db.MaterialImage.Remove(materialImage);
+                }
+            }
         }
     }
 }

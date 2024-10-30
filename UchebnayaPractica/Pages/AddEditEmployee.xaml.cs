@@ -22,10 +22,12 @@ namespace UchebnayaPractica.Pages
         public AddEditEmployee(User user,bool isNew, string title = "Добавить сотрудника")
         {
             InitializeComponent();
-
+            LoginTb.IsEnabled = false;
             if (!App.mainWindow.MainFrame.CanGoBack)
                 Back.Visibility = Visibility.Collapsed;
 
+            if (App.currentUser.Login != user.Login)
+                ExitBtn.Visibility = Visibility.Collapsed;
             if(App.currentUser.RoleId == 1 || App.currentUser.RoleId == 2 || App.currentUser.RoleId == 5)
             {
                 MainPanel.IsEnabled = false;
@@ -67,15 +69,6 @@ namespace UchebnayaPractica.Pages
         {
             operations.Add(new Operation());
             Refresh();
-        }
-
-        private void Back_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-                App.employeePage = null;
-            }
         }
 
         private void OperationTb_TextChanged(object sender, TextChangedEventArgs e)
@@ -153,17 +146,6 @@ namespace UchebnayaPractica.Pages
             return ""; 
         }
 
-        private void Delete_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Image image = sender as Image;
-            Operation operation = image.DataContext as Operation;
-
-            operations.Remove(operation);
-            if(operation.Id != 0)
-                App.db.Operation.Remove(operation);
-            Refresh();
-        }
-
         private void LoadBtn_Click(object sender, RoutedEventArgs e)
         {
             var opn = new OpenFileDialog();
@@ -185,7 +167,24 @@ namespace UchebnayaPractica.Pages
             }
         }
 
-        private void DeleteImage_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists(@"RememberMe.txt"))
+                File.Delete(@"RememberMe.txt");
+            App.mainWindow.MainFrame.Navigate(new AuthPage());
+            App.mainWindow.SetIcons(false, false, false, false, false, false, false);
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+                App.employeePage = null;
+            }
+        }
+
+        private void Trash_Click(object sender, RoutedEventArgs e)
         {
             MainImage.Source = null;
             user.IdUserImage = null;
@@ -204,6 +203,17 @@ namespace UchebnayaPractica.Pages
                     App.db.UserImage.Remove(userImage);
                 }
             }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var image = sender as Button;
+            Operation operation = image.DataContext as Operation;
+
+            operations.Remove(operation);
+            if (operation.Id != 0)
+                App.db.Operation.Remove(operation);
+            Refresh();
         }
     }
 }

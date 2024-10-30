@@ -1,8 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
 using System.Windows;
-using System.Windows.Navigation;
-using UchebnayaPractica.Database;
 using UchebnayaPractica.Pages;
 
 namespace UchebnayaPractica
@@ -27,17 +25,22 @@ namespace UchebnayaPractica
                 }
                 if (App.currentUser.RoleId == 3)
                 {
-                    App.mainWindow.SetIcons(true, true, true, true);
+                    App.mainWindow.SetIcons(true, true, true, true, true, false, false);
                     MainFrame.Navigate(new EmployeePage());
                 }
                 else if (App.currentUser.RoleId == 4)
                 {
-                    App.mainWindow.SetIcons(false, false, true, true);
-                    MainFrame.Navigate(new MainPage());
+                    App.mainWindow.SetIcons(false, false, true, false, true, false, false);
+                    MainFrame.Navigate(new OrderPage());
+                }
+                else if (App.currentUser.RoleId == 1)
+                {
+                    App.mainWindow.SetIcons(false, true, true, false, true, true, true);
+                    MainFrame.Navigate(new AccessoriesAndMaterialsPage());
                 }
                 else
                 {
-                    App.mainWindow.SetIcons(false, true, true, true);
+                    App.mainWindow.SetIcons(false, true, true, false, true, false, false);
                     MainFrame.Navigate(new AccessoriesAndMaterialsPage());
                 }
                 Methods.TakeInformation("Вы успешно зашли в систему!");
@@ -46,38 +49,48 @@ namespace UchebnayaPractica
                 MainFrame.Navigate(new AuthPage());
         }
 
-        public void SetIcons(bool employee, bool materials, bool exit, bool account)
+        public void SetIcons(bool employee, bool materials, bool account, bool plan, bool order, bool failure, bool test)
         {
             Employee.Visibility = employee ? Visibility.Visible : Visibility.Collapsed;
             Material.Visibility = materials ? Visibility.Visible : Visibility.Collapsed;
             Person.Visibility = account ? Visibility.Visible : Visibility.Collapsed;
-            Exit.Visibility = exit ? Visibility.Visible : Visibility.Collapsed;
+            Plan.Visibility = plan ? Visibility.Visible : Visibility.Collapsed;
+            Order.Visibility = order ? Visibility.Visible : Visibility.Collapsed;
+            Failure.Visibility = failure ? Visibility.Visible : Visibility.Collapsed;
+            Test.Visibility = test ? Visibility.Visible : Visibility.Collapsed;           
         }
 
-        private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void Exit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (File.Exists(@"RememberMe.txt"))
-                File.Delete(@"RememberMe.txt");
-            MainFrame.Navigate(new AuthPage());
-            SetIcons(false, false, false, false);
-        }
-
-        private void Material_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            MainFrame.Navigate(new AccessoriesAndMaterialsPage());
-        }
-
-        private void Employee_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Employee_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new EmployeePage());
         }
 
-        private void Person_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Plan_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PlanPage());
+        }
+
+        private void Material_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AccessoriesAndMaterialsPage());
+        }
+
+        private void Order_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new OrderPage());
+        }
+
+        private void Failure_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new FailurePage());
+        }
+
+        private void Test_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new TestPage());
+        }
+
+        private void Person_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new AddEditEmployee(App.currentUser, false, "Ваш профиль"));
         }
